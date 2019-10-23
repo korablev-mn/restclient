@@ -1,7 +1,6 @@
 package ru.korablev.restclient.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,6 @@ import ru.korablev.restclient.model.User;
 import ru.korablev.restclient.service.RoleService;
 import ru.korablev.restclient.service.UserService;
 import ru.korablev.restclient.util.ListRoles;
-
 import java.security.Principal;
 import java.util.*;
 

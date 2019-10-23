@@ -1,6 +1,5 @@
 package ru.korablev.restclient.model;
 
-
 import java.io.Serializable;
 import java.util.Objects;
 
