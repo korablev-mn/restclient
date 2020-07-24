@@ -67,4 +67,23 @@ public class UserController {
         }
         return "redirect:/home";
     }
+    
+    //Контроллер на jErsy
+    
+    @GET
+    @Path("product")
+    public Serializable product() throws IOException {
+        try (CloseableHttpClient httpclient = HttpClientBuilder.create().build()) {
+            HttpGet httpGet = new HttpGet(url + "/environment/product");  // запрос на url
+            try (CloseableHttpResponse httpResponse = httpclient.execute(httpGet)) {
+                HttpEntity httpEntity = httpResponse.getEntity();
+                String body = httpEntity != null ? EntityUtils.toString(httpEntity) : null;
+                if (body != null && body.contains("\"success\":true") && body.contains("\"subsystem\":\"KM_SYNTH_APP\"")) {
+                    return "OK";
+                } else {
+                    return "FAIL";
+                }
+            }
+        }
+    }
 }
